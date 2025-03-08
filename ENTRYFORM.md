@@ -56,7 +56,7 @@ dotnet sitecore --help
 ```
 ## Usage
 
-Thought for 2 seconds### Building and Using the Sitecore CLI Content Migration Extension
+Using the Sitecore CLI Content Migration Extension
 
 Here's a detailed guide on how to build and use the content migration command:
 
@@ -91,8 +91,6 @@ dotnet pack -o ./output
 ```
 
 This will create a `.nupkg` file in the `./output` directory.
-
-
 
 
 ## Installing the Extension
