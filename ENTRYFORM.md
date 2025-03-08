@@ -42,23 +42,130 @@ _Remove this subsection if your entry does not have any prerequisites other than
 ## Installation instructions
 ⟹ Write a short clear step-wise instruction on how to install your module.  
 
-> _A simple well-described installation process is required to win the Hackathon._  
-> Feel free to use any of the following tools/formats as part of the installation:
-> - Sitecore Package files
-> - Docker image builds
-> - Sitecore CLI
-> - msbuild
-> - npm / yarn
-> 
-> _Do not use_
-> - TDS
-> - Unicorn
- 
-for example:
+## Installing the Extension
 
-1. Use the Sitecore Installation wizard to install the [package](#link-to-package)
-2. ...
-3. profit
+1. **Install the extension to your Sitecore CLI**:
+
+```shellscript
+dotnet sitecore plugin add -f ./output/ScExtensions.ContentMigration.1.0.0.nupkg
+```
+
+2. **Verify the installation**:
+```shellscript
+dotnet sitecore --help
+```
+## Usage
+
+Thought for 2 seconds### Building and Using the Sitecore CLI Content Migration Extension
+
+Here's a detailed guide on how to build and use the content migration command:
+
+## Prerequisites
+
+- .NET 6.0 SDK or later
+- Sitecore CLI installed (`dotnet tool install -g Sitecore.CLI`)
+- Access to Sitecore XM Cloud environments
+
+
+## Building the Extension
+
+1. **Clone or create the project structure** as shown in the code above
+2. **Navigate to the project directory**:
+
+```shellscript
+cd ScExtensions.ContentMigration
+```
+
+
+3. **Build the project**:
+
+```shellscript
+dotnet build
+```
+
+
+4. **Pack the extension into a NuGet package**:
+
+```shellscript
+dotnet pack -o ./output
+```
+
+This will create a `.nupkg` file in the `./output` directory.
+
+
+
+
+## Installing the Extension
+
+1. **Install the extension to your Sitecore CLI**:
+
+```shellscript
+dotnet sitecore plugin add -f ./output/ScExtensions.ContentMigration.1.0.0.nupkg
+```
+
+
+2. **Verify the installation**:
+
+```shellscript
+dotnet sitecore --help
+```
+
+You should see the `migrate` command listed in the available commands.
+
+
+## Authenticating with XM Cloud
+
+Before using the migration command, you need to authenticate with both XM Cloud environments:
+
+1. **Authenticate with the source environment**:
+
+```shellscript
+dotnet sitecore login --authority https://auth.sitecore.io --cm https://xmc-source-env.sitecoredemo.com
+```
+
+
+2. **Authenticate with the target environment**:
+
+```shellscript
+dotnet sitecore login --authority https://auth.sitecore.io --cm https://xmc-target-env.sitecoredemo.com
+```
+
+## Using the Migrate Command
+
+Now you can use the migrate command to transfer content:
+
+```shellscript
+dotnet sitecore migrate --source-env "https://xmc-source-env.sitecoredemo.com" --target-env "https://xmc-target-env.sitecoredemo.com" --root-item "/sitecore/content/home" --include-children true
+```
+
+### Command Parameters
+
+- `--source-env`: The URL of the source XM Cloud environment
+- `--target-env`: The URL of the target XM Cloud environment
+- `--root-item`: The path to the item you want to migrate
+- `--include-children`: Whether to include child items (default is true)
+
+
+## Example Scenarios
+
+### Migrating a Single Page
+
+```shellscript
+dotnet sitecore migrate --source-env "https://xmc-source-env.sitecoredemo.com" --target-env "https://xmc-target-env.sitecoredemo.com" --root-item "/sitecore/content/home/about-us" --include-children false
+```
+
+### Migrating an Entire Site
+
+```shellscript
+dotnet sitecore migrate --source-env "https://xmc-source-env.sitecoredemo.com" --target-env "https://xmc-target-env.sitecoredemo.com" --root-item "/sitecore/content/home" --include-children true
+```
+
+### Migrating Media Items
+
+```shellscript
+dotnet sitecore migrate --source-env "https://xmc-source-env.sitecoredemo.com" --target-env "https://xmc-target-env.sitecoredemo.com" --root-item "/sitecore/media library/images" --include-children true
+```
+
 
 ### Configuration
 ⟹ If there are any custom configuration that has to be set manually then remember to add all details here.
