@@ -6,5 +6,4 @@
   
 ### ⟹ [Insert your documentation here](ENTRYFORM.md) <<
 
-## TODO: DELETE TEST UPDATE
-- Test push to repo
+![Team Horizon Logo](docs/images/Sitecore-Hackathon-2025-Team-Horizon.png?raw=true "Team Horizon Logo")
