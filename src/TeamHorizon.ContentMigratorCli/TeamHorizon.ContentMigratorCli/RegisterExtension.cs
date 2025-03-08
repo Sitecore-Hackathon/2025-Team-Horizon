@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Sitecore.Devex.Client.Cli.Extensibility;
-using Sitecore.Devex.Client.Cli.Extensibility.Subcommands;
+using Sitecore.DevEx.Client.Cli.Extensibility;
+using Sitecore.DevEx.Client.Cli.Extensibility.Subcommands;
 using TeamHorizon.ContentMigratorCli.Commands;
 using TeamHorizon.ContentMigratorCli.Tasks;
 
