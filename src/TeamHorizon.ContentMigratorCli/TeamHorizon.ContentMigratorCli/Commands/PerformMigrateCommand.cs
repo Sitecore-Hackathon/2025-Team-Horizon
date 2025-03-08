@@ -1,4 +1,4 @@
-﻿using Sitecore.DevEx.Client.Cli.Extensibility.Subcommands;
+﻿using Sitecore.Devex.Client.Cli.Extensibility.Subcommands;
 using TeamHorizon.ContentMigratorCli.Tasks;
 
 namespace TeamHorizon.ContentMigratorCli.Commands
