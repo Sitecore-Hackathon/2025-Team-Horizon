@@ -9,7 +9,9 @@
     "Sitecore.DevEx.Extensibility.Publishing@6.0.23",
     "Sitecore.DevEx.Extensibility.Indexing@6.0.23",
     "Sitecore.DevEx.Extensibility.ResourcePackage@6.0.23",
-    "Sitecore.DevEx.Extensibility.Database@6.0.23"
+    "Sitecore.DevEx.Extensibility.Database@6.0.23",
+    "TeamHorizon.ContentMigratorCli@1.0.0",
+    "Web3.Operator.Cli@1.0.0"
   ],
   "serialization": {
     "defaultMaxRelativeItemPathLength": 120,
