@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title></Title>
     <Description>This is a custome Sitecore CLI plugin that adds 'migrate' command to enable capability to migrate content from source to target Sitecore CM instances</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageOutputPath>..\..\..\nuget</PackageOutputPath>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Julius Angwenyi, Rashmy Patwari</Authors>
     <Company>Team Horizon</Company>
     <PackageProjectUrl>https://github.com/Sitecore-Hackathon/2025-Team-Horizon</PackageProjectUrl>
