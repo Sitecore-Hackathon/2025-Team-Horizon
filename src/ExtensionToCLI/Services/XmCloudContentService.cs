@@ -1,12 +1,3 @@
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-
 namespace ScExtensions.ContentMigration.Services
 {
     public class XmCloudContentService
@@ -16,7 +7,7 @@ namespace ScExtensions.ContentMigration.Services
 
         public XmCloudContentService(ILogger<XmCloudContentService> logger, HttpClient httpClient)
         {
-            _logger = logger;
+            _logger     = logger;
             _httpClient = httpClient;
         }
 
@@ -47,18 +38,18 @@ namespace ScExtensions.ContentMigration.Services
                 response.EnsureSuccessStatusCode();
 
                 // Process the response
-                var content = await response.Content.ReadAsStringAsync();
-                var items = JsonSerializer.Deserialize<ItemResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                var content  = await response.Content.ReadAsStringAsync();
+                var items    = JsonSerializer.Deserialize<ItemResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
-                var result = new List<ContentItem>();
+                var result   = new List<ContentItem>();
                 if (items?.Result != null)
                 {
                     // Process the root item
                     var rootItem = new ContentItem
                     {
-                        Id = items.Result.ItemId,
-                        Path = rootItemPath,
-                        Fields = items.Result.Fields
+                        Id       = items.Result.ItemId,
+                        Path     = rootItemPath,
+                        Fields   = items.Result.Fields
                     };
                     result.Add(rootItem);
 
@@ -85,8 +76,8 @@ namespace ScExtensions.ContentMigration.Services
                 var childPath = $"{parentPath}/{child.Name}";
                 var item = new ContentItem
                 {
-                    Id = child.ItemId,
-                    Path = childPath,
+                    Id     = child.ItemId,
+                    Path   = childPath,
                     Fields = child.Fields
                 };
                 result.Add(item);
@@ -156,18 +147,18 @@ namespace ScExtensions.ContentMigration.Services
         {
             // Extract parent path and name
             var lastSlashIndex = item.Path.LastIndexOf('/');
-            var parentPath = item.Path.Substring(0, lastSlashIndex);
-            var name = item.Path.Substring(lastSlashIndex + 1);
+            var parentPath     = item.Path.Substring(0, lastSlashIndex);
+            var name           = item.Path.Substring(lastSlashIndex + 1);
 
             // Get template ID (in a real implementation, this would come from the exported data)
-            var templateId = "{0EE1F455-C80C-4121-8D98-C2819DE1F9A2}"; // Example template ID
+            var templateId     = "{0EE1F455-C80C-4121-8D98-C2819DE1F9A2}"; // Example template ID
 
-            var endpoint = $"{environmentUrl}/sitecore/api/ssc/item{parentPath}/children";
-            var payload = new
+            var endpoint       = $"{environmentUrl}/sitecore/api/ssc/item{parentPath}/children";
+            var payload        = new
             {
-                itemName = name,
-                templateId = templateId,
-                fields = item.Fields
+                itemName       = name,
+                templateId     = templateId,
+                fields         = item.Fields
             };
 
             var content = new StringContent(

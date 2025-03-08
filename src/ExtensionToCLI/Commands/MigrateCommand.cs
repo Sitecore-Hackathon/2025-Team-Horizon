@@ -25,9 +25,9 @@ namespace ScExtensions.ContentMigration.Commands
             ICliCommandExecutor cliCommandExecutor,
             ITaskRunner taskRunner)
         {
-            _logger = logger;
+            _logger             = logger;
             _cliCommandExecutor = cliCommandExecutor;
-            _taskRunner = taskRunner;
+            _taskRunner         = taskRunner;
         }
 
         public ICommandLineConfiguration GetConfiguration()
@@ -75,8 +75,8 @@ namespace ScExtensions.ContentMigration.Commands
                         {
                             SourceEnvironment = sourceEnv,
                             TargetEnvironment = targetEnv,
-                            RootItem = rootItem,
-                            IncludeChildren = includeChildren
+                            RootItem          = rootItem,
+                            IncludeChildren   = includeChildren
                         });
                     }
                     catch (Exception ex)
