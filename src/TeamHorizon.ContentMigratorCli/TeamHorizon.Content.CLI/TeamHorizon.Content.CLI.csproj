@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomBuildOutputTarget</TargetsForTfmSpecificContentInPackage>
+		<Title></Title>
+		<Description>This is a custome Sitecore CLI plugin that adds 'migrate' command to enable capability to migrate content from source to target Sitecore CM instances</Description>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageOutputPath>..\..\..\nuget</PackageOutputPath>
+		<Version>1.0.1</Version>
+		<Authors>Julius Angwenyi, Rashmy Patwari</Authors>
+		<Company>Team Horizon</Company>
+		<PackageProjectUrl>https://github.com/Sitecore-Hackathon/2025-Team-Horizon</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Sitecore-Hackathon/2025-Team-Horizon</RepositoryUrl>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <NoWarn>NU5100;NU5128</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+      <None Remove=".gitignore" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Sitecore.DevEx.Client.Cli" Version="4.1.1" />
+    </ItemGroup>
+
+    <Target Name="CustomBuildOutputTarget">
+        <ItemGroup>
+            <TfmSpecificPackageFile Include="$(OutputPath)TeamHorizon.Content.CLI.dll" PackagePath="plugin" />
+        </ItemGroup>
+    </Target>
+</Project>
