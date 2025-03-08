@@ -12,14 +12,15 @@ You can find a very good reference to Github flavoured markdown reference in [th
 Team Horizon
 
 ## Category
-⟹ Write the name of the selected category
+⟹CLI Customization
 
 ## Description
 ⟹ Write a clear description of your hackathon entry.  
 
-  - Module Purpose
-  - What problem was solved (if any)
-    - How does this module solve it
+  - Make XMCloud Content Hydrations a breeze with a single command!
+  - Hydration of content between environments in the same instance or multiple could be a very challenging experience for the Team.
+    - With a single CLI command, we can hydrate content based on pre-defined module configurations between environments.
+    - E.g. Prod -> QA, QA -> Dev
 
 _You can alternately paste a [link here](#docs) to a document within this repo containing the description._
 
@@ -32,7 +33,7 @@ _You can alternately paste a [link here](#docs) to a document within this repo c
 
 ⟹ Does your module rely on other Sitecore modules or frameworks?
 
-- List any dependencies
+- Sitecore XMCloud access.
 - Or other modules that must be installed
 - Or services that must be enabled/configured
 
